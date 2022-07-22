@@ -1,0 +1,81 @@
+html{
+    background-color: darkgrey;
+}
+#header{
+    text-align: center;
+}
+.calc-body{
+    background-color:cadetblue;
+    margin:auto;
+    border: 4px solid black;
+    height: 300px;
+    width: 190px;
+    display: flex;
+    flex-direction: column;
+}
+.result{
+    background-color: beige;
+    margin:auto;
+    margin-top:5%;
+    width: 90%;
+    flex-grow: 1;
+}
+.number-section{
+    background-color:black;
+    display: flex;
+    flex-direction: row;
+    flex-grow: 3;
+}
+.numbers{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    flex-grow: 2;
+    background-color:rgb(0, 36, 4);
+}
+.operators{
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border:1px solid black;
+    padding:10%;
+    background-color:goldenrod;
+}
+.operators div{
+    text-align: center;
+    flex:1;
+    padding:10%;
+}
+    
+.numbers123,
+.numbers456,
+.numbers789{
+    display: flex;
+    justify-content: center;
+    gap: 50%;
+    
+}
+.numbers123 div,
+.numbers456 div,
+.numbers789 div{
+    flex: row;
+    padding:45%;
+    background-color:lightgreen;
+}
+.number0{
+    width:80%;
+    background-color:lightgreen;
+}
+.numbers div{
+    margin: auto;
+    text-align: center;
+}
+.misc{
+    display: flex;
+    text-align: center;
+}
+.misc div{
+    flex:1;
+    border: 1px solid black;
+}

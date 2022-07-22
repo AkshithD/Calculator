@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Calculator</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <h1 id="header">Calculator</h1>
+        <div class="calc-body">
+            <div class="result"></div>
+            <div class="number-section">
+                <div class="numbers">
+                    <div class="numbers123">
+                        <div class="number1">1</div>
+                        <div class="number2">2</div>
+                        <div class="number3">3</div>
+                    </div>
+                    <div class="numbers456">
+                        <div class="number4">4</div>
+                        <div class="number5">5</div>
+                        <div class="number6">6</div>
+                    </div>
+                    <div class="numbers789">
+                        <div class="number7">7</div>
+                        <div class="number8">8</div>
+                        <div class="number9">9</div>
+                    </div>
+                    <div class="number0">0</div>
+                </div>
+                <div class="operators">
+                    <div class="add">+</div>
+                    <div class="subtract">-</div>
+                    <div class="multiply">*</div>
+                    <div class="divide">/</div>
+                    
+                </div>
+                 
+            </div>
+            <div class="misc">
+                <div class="clear"> Clear All</div>
+                <div class="equal">=</div>
+            </div>
+        </div>
+    </body>
+    <script>
+        let i=0
+        let j=0
+        let first_num= true
+        const testnum1 = document.querySelector('.numbers123')
+        testnum1.childNodes.forEach(element => {
+                element.addEventListener('click',()=>{
+                displayNumber(element.textContent)
+                if (first_num==true){
+                    i = parseInt(i.toString()+ element.textContent)
+                }else{
+                    j = parseInt(j.toString()+ element.textContent)
+                }
+            })  
+        })
+        const testnum2 = document.querySelector('.numbers456')
+        testnum2.childNodes.forEach(element => {
+                element.addEventListener('click',()=>{
+                displayNumber(element.textContent)
+                if (first_num==true){
+                    i = parseInt(i.toString()+ element.textContent)
+                }else{
+                    j = parseInt(j.toString()+ element.textContent)
+                }
+            })  
+        })
+        const testnum3 = document.querySelector('.numbers789')
+        testnum3.childNodes.forEach(element => {
+                element.addEventListener('click',()=>{
+                displayNumber(element.textContent)
+                if (first_num==true){
+                    i = parseInt(i.toString()+ element.textContent)
+                }else{
+                    j = parseInt(j.toString()+ element.textContent)
+                }
+            })  
+        })
+        const testnum4 = document.querySelector('.number0')
+            testnum4.addEventListener('click',()=>{
+                displayNumber(testnum4.textContent)
+                if (first_num==true){
+                    i = parseInt(i.toString()+ testnum4.textContent)
+                }else{
+                    j = parseInt(j.toString()+ testnum4.textContent)
+                }
+            })
+        
+        const opert = document.querySelector('.operators')
+        opert.childNodes.forEach(element =>{
+            element.addEventListener('click',()=>{
+                if (first_num==false){
+                    alert("click the = button before evaluating again!");
+                        i=0
+                        j=0
+                        first_num= true
+                        reset()}else{
+
+                displayNumber(element.textContent)
+                operation = element.textContent
+                first_num=false
+                        }
+            })
+        })
+        
+        const equalop = document.querySelector('.equal')
+        equalop.addEventListener('click',()=>{
+            if(i==0){i = parseInt(display.textContent)}
+            let tempnum = operate(operation,i,j)
+            i=0
+            j=0
+            first_num= true
+            reset()
+            displayNumber(tempnum)
+        })
+        const cleara = document.querySelector('.clear')
+        cleara.addEventListener('click', ()=>{
+            i=0
+            j=0
+            first_num= true
+            reset()
+        })
+        
+
+        const display = document.querySelector('.result')
+        function displayNumber(num){
+            display.textContent = display.textContent + num
+        }
+        function reset(){
+            display.textContent = ""
+        }
+
+        function add(i,j){
+            return i + j
+        }
+        function subtract(i,j){
+            return i - j
+        }
+        function multiply(i,j){
+            return i * j
+        }
+        function divide(i,j){
+            return i / j
+        }
+        function operate(operator,i,j){
+            if(operator=="+"){ return add(i,j)}
+            if(operator=="-"){return subtract(i,j)}
+            if(operator=="*"){return multiply(i,j)}
+            if(operator=="/" && j!=0){return divide(i,j)}
+        }
+
+    </script>
+</html>
